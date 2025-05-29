@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protección de Dispositivos</title>
+    <style>
+        /* Estilos de reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Estilos generales de la página */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url('https://images.pexels.com/photos/1342460/pexels-photo-1342460.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        
+        /* Estilo del título con texto transparente y fondo semi-transparente */
+        .title-container {
+            width: 80%;
+            max-width: 700px;
+            background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+            color: transparent;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title-container::before {
+            content: "Protección de Dispositivos";
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 3rem;
+        }
+        
+        /* Estilos del contenedor de diapositivas */
+        .slides-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 90%;
+            justify-content: center;
+        }
+        
+        /* Estilo de cada diapositiva */
+        .slide {
+            width: 300px;
+            min-height: 200px;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Diferentes colores para cada diapositiva */
+        .slide-1 { background-color: #007bff; } /* Azul */
+        .slide-2 { background-color: #28a745; } /* Verde */
+        .slide-3 { background-color: #ffc107; } /* Amarillo */
+        
+        /* Estilo de la diapositiva extendida */
+        .slide.active {
+            width: 80%;
+            height: auto;
+            padding: 20px;
+        }
+        
+        /* Texto pequeño para el resumen inicial */
+        .summary {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        /* Texto expandido con detalles adicionales */
+        .details {
+            display: none;
+            font-size: 0.95rem;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        
+        /* Mostrar detalles cuando está activo */
+        .slide.active .details {
+            display: block;
+        }
+
+        /* Estilo de icono de ejemplo (se puede reemplazar con imágenes) */
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Título principal -->
+    <div class="title-container">
+        Protección de Dispositivos
+    </div>
+    
+    <!-- Contenedor de las diapositivas -->
+    <div class="slides-container">
+        <!-- Diapositiva 1 -->
+        <div class="slide slide-1" onclick="toggleSlide(this)">
+            <div class="icon">🛡️</div>
+            <h2>Configuración de usuarios y antivirus</h2>
+            <p class="summary">Solo una cuenta de administrador y un antivirus actualizado son esenciales.</p>
+            <div class="details">
+                <p>Cuando se utilizan dispositivos compartidos, es crucial que solo exista una cuenta de administrador. Esto ayuda a prevenir accesos no autorizados y garantiza que solo se realicen cambios necesarios en el sistema. Además, es vital tener un software antivirus instalado y activado, ya que actúa como un guardián contra virus y malware. Mantener el antivirus actualizado asegura que esté preparado para enfrentar las últimas amenazas.</p>
+                <p>Eliminar aplicaciones y programas innecesarios también mejora la seguridad, ya que reduce la cantidad de posibles vectores de ataque. Cada aplicación adicional puede ser un riesgo, así que es recomendable mantener solo las que sean realmente necesarias.</p>
+            </div>
+        </div>
+        
+        <!-- Diapositiva 2 -->
+        <div class="slide slide-2" onclick="toggleSlide(this)">
+            <div class="icon">🔄</div>
+            <h2>Actualización y permisos de aplicaciones</h2>
+            <p class="summary">Mantén las aplicaciones actualizadas y controla los permisos que tienen.</p>
+            <div class="details">
+                <p>Es esencial mantener las aplicaciones actualizadas para prevenir fallos de seguridad y mejorar su rendimiento. Las aplicaciones obsoletas pueden contener vulnerabilidades que los atacantes pueden explotar. Por lo tanto, se recomienda activar la actualización automática de las aplicaciones para garantizar que estén siempre al día.</p>
+                <p>También es importante revisar los permisos que las aplicaciones solicitan. Muchas veces, las aplicaciones piden acceso a funciones del dispositivo que no son necesarias para su funcionamiento. Limitar los permisos solo a lo necesario protege la información personal y minimiza el riesgo de filtraciones de datos.</p>
+            </div>
+        </div>
+        
+        <!-- Diapositiva 3 -->
+        <div class="slide slide-3" onclick="toggleSlide(this)">
+            <div class="icon">🔒</div>
+            <h2>Actualización automática y seguridad de acceso</h2>
+            <p class="summary">Configura actualizaciones automáticas y establece medidas de bloqueo.</p>
+            <div class="details">
+                <p>Configurar actualizaciones automáticas es fundamental para asegurar que el dispositivo esté siempre protegido contra nuevas amenazas. Las actualizaciones no solo aplican parches de seguridad, sino que también mejoran la funcionalidad del sistema.</p>
+                <p>Además, implementar un sistema de bloqueo robusto, como contraseñas, PIN o reconocimiento biométrico, ayuda a prevenir accesos no autorizados. En dispositivos compartidos, cada usuario debe tener su cuenta individual para proteger la información personal de cada miembro.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript para el funcionamiento de las diapositivas -->
+    <script>
+        function toggleSlide(element) {
+            // Remover la clase 'active' de cualquier otra diapositiva activa
+            document.querySelectorAll('.slide').forEach(slide => {
+                if (slide !== element) slide.classList.remove('active');
+            });
+            // Alternar la clase 'active' en la diapositiva seleccionada
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
